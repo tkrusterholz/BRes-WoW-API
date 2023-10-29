@@ -24,7 +24,9 @@ Follow ALL of these steps.  If you do not do this correctly, I am not responsibl
 1. Make sure you have your spreadsheet open to the correct sheet in another tab (if you just did the above section then you are set)
 2. In the menu bar of the script editor, find the drop down where you can choose a function and choose "addMenuItem"
 3. Click the Run button. The execution log should pop up and you will see "Execution completed" after a short time
-4. In your spreadsheet, verify you now see a menu bar item "WoW API" with option "Update Character Info" - do not actually run this yet!
+4. There will be a pop up asking you to for authorization, this is granting the script read/write access to your spreadsheet
+5. Click Review Permissions, then choose your correct Google account, then you will likely see a "Google hasn't verified this app" warning, click "Advanced," then "Go to Untitled project, then "Allow"
+6. You should see the Execution log appear and post "Execution completed, go back to your spreadsheet and verify you now see a menu bar item "WoW API" with option "Update Character Info" - do not actually run this yet!
 ### Add The Library
 1. You will need access to a script ("library") that I have created, send me the email address of your Google account that owns your spreadsheet
 2. I will add your account to my whitelist, and then respond with a "Script ID"
@@ -36,5 +38,7 @@ Follow ALL of these steps.  If you do not do this correctly, I am not responsibl
 2. Underneath that are four lines with comment labels, you need to update these with your preferred Realm name and the correct cell ranges on your spreadsheet
 3. Click Save
 ### Make Magic Happen
-1. Go back to your spreadsheet, from the menu bar choose WoW API > Update Character Info, cross your fingers neither of us messed anything up and it works the first time!
-2. If something goes wrong and you overwrite the wrong cells, simply Edit > Undo
+1. Go back to your spreadsheet, from the menu bar choose WoW API > Update Character Info
+2. At this point you will get another request to authorize access, follow the same steps as before
+3. Cross your fingers neither of us messed anything up and it works the first time!
+4. If something goes wrong and you overwrite the wrong cells, simply Edit > Undo
