@@ -27,11 +27,12 @@ Follow ALL of these steps.  If you do not do this correctly, I am not responsibl
 4. Click Review Permissions, then choose your correct Google account, then you will see a "Google hasn't verified this app" warning, click "Advanced," then "Go to Untitled project," then "Allow"
 5. You should see the Execution log appear and post "Execution completed," go back to your spreadsheet and verify you now see a menu bar item "WoW API" with option "Update Character Info" - do not actually run it yet!!
 ### Add The Library
-1. You will need access to a script ("library") that I have created, send me the email address of your Google account that owns your spreadsheet
-2. I will add your account to my whitelist, and then respond with a "Script ID"
-3. In the script editor window, on the left side find "Libraries" and then click the + to add a new library
-4. Paste in the script ID, click "Look up", you should see BResWoWAPIToken
-5. Make sure you choose the latest version (probably version 2) and then click 'Add'
+1. You have to do one of two things in order to access the Blizzard API, either a.) follow the instructions below for access to my API token, or b.) set up your own API access.  I can walk you through the latter if you wish.
+2. If you want to use my API token / "library," send me the email address of your Google account that owns your spreadsheet
+3. I will add your account to my library whitelist, and then respond with a "Script ID"
+4. In the script editor window, on the left side find "Libraries" and then click the + to add a new library
+5. Paste in the script ID, click "Look up", you should see BResWoWAPIToken
+6. Make sure you choose the latest version (probably version 2) and then click 'Add'
 ### Personalize The Script
 1. Look at the top of the script for the section "function personalize()"
 2. Underneath that are four lines with comment labels, you need to update these with your preferred Realm name and the correct cell ranges on your spreadsheet
