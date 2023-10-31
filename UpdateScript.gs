@@ -3,7 +3,6 @@
 // See the README at https://github.com/tkrusterholz/BRes-WoW-API/blob/main/README.md for important notes and instructions on how to use this!!!
 
 function personalize() {
-
   // vvv vvv vvv vvv vvv vvv vvv vvv vvv vvv  ADD YOUR INFO HERE!!!  vvv vvv vvv vvv vvv vvv vvv vvv vvv vvv
   PropertiesService.getUserProperties().setProperty("realmName","Shadowsong") // Realm name
   PropertiesService.getUserProperties().setProperty("nameRange","A2:A27") // Cell range with character names
@@ -11,26 +10,25 @@ function personalize() {
   PropertiesService.getUserProperties().setProperty("ilvlRange","C2:C27") // Cell range with character item levels
 }
 
-function addMenuItem() { // Run this once from the script editor to create the menu item in the spreadsheet
-
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('WoW API')
-      .addItem('Update Character Info','update')
-      .addToUi();
+function addMenuItem() {
+  SpreadsheetApp.getUi().createMenu('WoW API').addItem('Update Character Info','update').addToUi()
 }
 
 function getCharacter(toon) { 
-  
-  // makethecall.gif
-  return JSON.parse(
-    UrlFetchApp.fetch(
-      "https://us.api.blizzard.com/profile/wow/character/"+PropertiesService.getUserProperties().getProperty('realmName').toLowerCase()+"/"+toon.toLowerCase()+"?namespace=profile-us&locale=en_US&access_token="+PropertiesService.getUserProperties().getProperty('tokenValue')
-    )
-  )
+  if (toon == "") {
+    return {"code":404}
+  } else {
+    // makethecall.gif
+    return JSON.parse(UrlFetchApp.fetch("https://us.api.blizzard.com/profile/wow/character/"+
+       PropertiesService.getUserProperties().getProperty('realmName').toLowerCase()+"/"+  // realm
+       toon.toLowerCase()+"?namespace=profile-us&locale=en_US&access_token="+  // character
+       PropertiesService.getUserProperties().getProperty('tokenValue'),  // token
+       {"muteHttpExceptions" : true}  // ignore HTTP errors
+    ))
+  }  
 }
 
 function update () {
-
   personalize()  // gimme your infos
   PropertiesService.getUserProperties().setProperty('tokenValue',BResWoWAPIToken.getToken())  // fetch API access token
   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
@@ -43,9 +41,14 @@ function update () {
   for (var row in names) {
     for (var col in names[row]) {
 
-      toonData = getCharacter(names[row][col]) // Get individual character info from WoW API
-      levelData.push([toonData["level"].toFixed(0)]) // Insert character level into 1x1 array and append to level array
-      ilvlData.push([toonData["average_item_level"].toFixed(0)]) // Insert character item level into 1x1 array and append to ilvl array
+      var toonData = getCharacter(names[row][col]) // Get individual character info from WoW API
+      if (toonData["code"] == 404) {
+        levelData.push([[]])
+        ilvlData.push([[]])
+      } else {
+        levelData.push([toonData["level"].toFixed(0)]) // Insert character level into 1x1 array and append to level array
+        ilvlData.push([toonData["average_item_level"].toFixed(0)]) // Insert character item level into 1x1 array and append to ilvl array
+      }
     }
   }
 
