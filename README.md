@@ -21,7 +21,7 @@ Follow ALL of these steps.  If you do not do this correctly, I am not responsibl
 5. In the script editor menu bar, click the Save icon and verify there are no errors
 ### Add The Menu Bar Item
 1. Make sure you have your spreadsheet open to the correct sheet in another tab (if you just did the above section then you are set)
-2. In the menu bar of the script editor, find the drop down where you can choose a function and choose "addMenuItem," then click Run
+2. In the menu bar of the script editor, find the drop down where you can choose a function and choose "onOpen," then click Run
 3. A pop-up will appear asking for authorization, this is granting the script read/write access to your spreadsheet
 4. Click Review Permissions, then choose your correct Google account, then you will see a "Google hasn't verified this app" warning, click "Advanced," then "Go to Untitled project," then "Allow"
 5. You should see the Execution log appear and post "Execution completed," go back to your spreadsheet and verify you now see a menu bar item "WoW API" with option "Update Character Info" - do not actually run it yet!!
