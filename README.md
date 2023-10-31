@@ -3,14 +3,13 @@ GAS script for polling the WoW Character API, retrieving character information, 
 
 ## Important Notes
 - Script only works for one realm, and defaults to Shadowsong -- see "Personalize The Script" below to change this
-- The entire script will fail if API returns a 404 ('character not found') for any call.
+- Script currently only returns level and average item level values for characters, this may be expanded upon in the future
+- Script returns null values for any blanks in the character name cell range, or for any 404 "character not found" errors
 	- Most common causes of a 404:
 		- Your character name is misspelled in your spreadsheet - double check any fancy characters!
 		- Your character is not in the API database (i.e. under level 10)
 			- I don't know how long it takes for this database to update after you hit level 10, but in testing it seems to take over 24 hours
 			- You can check by going to worldofwarcraft.com and searching for your character, if they appear in search results then they should appear in the API
-	- Best way to mitigate this (for now) is to just delete characters under level 10 from the spreadsheet, or move them out of the character name cell range
-	- In future I will make the script capable of ignoring 404s instead of halting
 
 ## How To Make The Script Work For You
 Follow ALL of these steps.  If you do not do this correctly, I am not responsible for any loss of very very critical character spreadsheet data!
