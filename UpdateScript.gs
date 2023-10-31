@@ -10,7 +10,7 @@ function personalize() {
   PropertiesService.getUserProperties().setProperty("ilvlRange","C2:C27") // Cell range with character item levels
 }
 
-function addMenuItem() {
+function onOpen(e) {
   SpreadsheetApp.getUi().createMenu('WoW API').addItem('Update Character Info','update').addToUi()
 }
 
