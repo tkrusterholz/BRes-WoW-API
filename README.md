@@ -3,7 +3,7 @@ GAS script for polling the WoW Character API, retrieving character information, 
 
 ## Important Notes
 - Script only works for one realm, and defaults to Shadowsong -- see "Personalize The Script" below to change this
-- Script will return only the values you want (level, race, item level, etc.) and ignore others; see Personalize The Script below
+- Script will return only the values you want (level, race, item level, etc.) and ignore others
 - Script returns null values for any blanks in the character name cell range, or for any 404 "character not found" errors
 	- Most common causes of a 404:
 		- Your character name is misspelled in your spreadsheet - double check any fancy characters!
