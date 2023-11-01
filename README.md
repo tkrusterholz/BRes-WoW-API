@@ -3,7 +3,7 @@ GAS script for polling the WoW Character API, retrieving character information, 
 
 ## Important Notes
 - Script only works for one realm, and defaults to Shadowsong -- see "Personalize The Script" below to change this
-- Script currently only returns level and average item level values for characters, this may be expanded upon in the future
+- Script will return only the values you want (level, race, item level, etc.) and ignore others; see Personalize The Script below
 - Script returns null values for any blanks in the character name cell range, or for any 404 "character not found" errors
 	- Most common causes of a 404:
 		- Your character name is misspelled in your spreadsheet - double check any fancy characters!
@@ -33,9 +33,11 @@ Follow ALL of these steps.  If you do not do this correctly, I am not responsibl
 5. Paste in the script ID, click "Look up", you should see BResWoWAPIToken
 6. Make sure you choose the latest version (probably version 2) and then click 'Add'
 ### Personalize The Script
-1. Look at the top of the script for the section "function personalize()"
-2. Underneath that are four lines with comment labels, you need to update these with your preferred Realm name and the correct cell ranges on your spreadsheet
-3. Once the realm and cell range values are correct for your spreadsheet, Save the script again
+1. Look at the top of the script for the section "function personalize()", underneath that are several lines with comment labels
+2. The first two (realmName and rangeOfNames) are mandatory and the script will fail if either of these are empty or misspelled
+3. The next several lines are optional.  If you want the listed value to be returned, enter the cell range between the quotation marks.  Use the existing settings as examples
+4. If you DON'T want the listed value to be returned, just leave the quotation marks with nothing between them.  Use the existing settings as examples
+5. Once all the values are correct for what you want, Save the script again
 ### Make Magic Happen
 1. Go back to your spreadsheet, from the menu bar choose WoW API > Update Character Info
 2. You will get another request to authorize spreadsheet access, follow the same steps as before
